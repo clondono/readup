@@ -2,9 +2,13 @@ source 'https://rubygems.org'
 
 # bootstrap
 #gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
-#gem "therubyracer"
+require 'v8'
+# or if using bundler (as with Rails), add the following to your Gemfile
+gem "therubyracer"
+
 gem "less-rails"
 gem "font-awesome-rails"
+gem "twitter-bootstrap-rails"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
