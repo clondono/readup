@@ -12,9 +12,9 @@
  *= require custom
  *= require_self
  *= require font-awesome
+ *= forms
  *= require select2
  *= require_tree .
- *= forms
  */
 
 #logo {
@@ -31,7 +31,8 @@
 #logo:hover {
   background-color: transparent; 
   text-decoration: none;
-  color: #6DF2CE;
+  color: #fff;
+  font-weight:bold;
   text-shadow: none;
 }
 #new_update {
@@ -39,8 +40,9 @@
 }
 
 body {
-  background-color: #c7f7ea;
+  background-color: #C2C0BF;
   padding-top: 60px !important;
+  height:100%;
 }
   html {
       height:100%;
@@ -59,6 +61,6 @@ html{
 }
 
 .Headings {
-    color: #0BA2D9;
+    color: #A31F34;
 }
 

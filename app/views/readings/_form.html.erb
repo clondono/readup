@@ -1,0 +1,47 @@
+<%= form_for(@reading,:html => { :class => "form-horizontal"}) do |f| %>
+  <% if @reading.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reading.errors.count, "error") %> prohibited this reading from being saved:</h2>
+
+      <ul>
+      <% @reading.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <div class ="proj-basics inlineb">
+      <div class="control-group">
+        <%= f.label :title  , :class => 'control-label'%>
+        <div class="controls">
+          <%= f.text_field :title, :required=>:true, :class => 'text_field' , :placeholder =>'title'%>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :author , :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :author, :required=>:true , :class => 'text_field', :placeholder =>'author'%>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :file , :class => 'control-label' %>
+        <div class="controls">
+          <%= f.file_field :file, :required=>:true%>
+        </div>
+      </div>
+    </div>
+    <div class="proj-extra inlineb">
+      <h3>Choose Tags<h3>
+      <div>
+        <%=render "taggable_fields", :f => f %>
+      </div>
+      <div>
+        <%= link_to_add_fields "Create more Tags",  f, :tags %>
+
+      </div>
+    </div> 
+    <%= f.submit 'Upload', :class => 'btn inlineb btn-primary' %>
+  </div>
+<% end %>

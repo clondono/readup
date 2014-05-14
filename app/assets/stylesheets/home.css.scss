@@ -1,3 +1,24 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.mainHome {
+	height: 100%;
+	background-color:none;
+}
+
+.section {
+	padding:10px;
+	border-radius:10px;
+}
+#updateBlurb {
+	height:200px;
+	background-color:#fff;
+	float:left;
+}
+
+#uploadBlurb{
+	height:400px;
+	background-color:#fff;
+	float:right;
+}

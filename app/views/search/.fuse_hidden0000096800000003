@@ -1,0 +1,45 @@
+<h1>Search Results for:</h1>
+<%@tags.each do |tag|%>
+	<div class="proj-tag inlineb">
+		<%=tag.title%>
+	</div>
+<%end%>
+<div class="search-info">
+	<b>Click on Reading Name to go to the Reading Page. (<%=@readings.length%> results found)</b>
+</div>
+
+<div class= "results-all inlineb">
+	<%if @readings.length == 0%>
+		<h2>No Readings found. Try different Tags</h2>
+	<%end%>
+	<% @readings.each do |reading|%>
+	<div class="result inlineb">
+		<div class="result-video inlineb">
+			<iframe src="<%= strip_tags(reading.youtube_embed)%>" frameborder="0" allowfullscreen class = "inlineb"></iframe>
+		</div>
+		<div class="result-right inlineb">
+			<div class = "search-link inlineb">
+				<h2><%= link_to ""+ reading.title, reading %></h2>
+			</div>
+			<div class = "search-image inlineb">
+				<%= image_tag reading.image.url, :class => "inlineb"%>
+			</div>
+			<div class="progress progress-striped inlineb">
+				Amount raised: $<%= reading.total_donation %>
+		      <div class="bar inlineb" style="width: <%= (reading.total_donation / reading.goal)*100%>%;">
+		      </div>
+		    </div> 
+		    <div class="search-tags inlineb">
+		    	<div>
+		    		Tags:
+		    	</div>
+		    	<%reading.tags.each do |tag|%>
+					<div class="proj-tag inlineb">
+						<%=tag.title%>
+					</div>
+				<%end%>
+		    </div>
+		</div>
+	</div>
+	<%end%>
+</div>

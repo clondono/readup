@@ -1,0 +1,273 @@
+// Place all the styles related to the Projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.inlineb{
+	display: inline-block;
+}
+.proj-header{
+	width: 100%;
+	.proj-image{
+		margin-left: 10%;
+		img{
+			width: 200px;
+			height: 100px;
+		}
+	}
+	.rightinfo{
+		margin-left: 10%;
+		width: 50%;
+		border: 1px solid transparent;
+		border-radius: 20px;
+		text-align: center;
+		.proj-title{
+			width: inherit;
+			h2{
+				color: #0BA2D9;
+			    font-family: 'Karla', sans-serif;   
+			}
+		}
+		.proj-owner{
+			width: 50%;
+			border-top: 1px solid black;
+		}
+	}
+}
+
+.proj-video{
+	width: 400px;
+	margin-top: 30px;
+	iframe{
+		width: inherit;
+		height: 300px;
+	}
+}
+.proj-donations{
+	margin-top: 23px;
+	margin-left: 30px;
+	padding: 20px;
+	padding-top: 30px;
+	border: 1px solid transparent;
+	border-radius: 20px;
+	vertical-align: top;
+	width: 400px;
+	height: 290px;
+	.stats{
+		margin-top: 40px;
+		margin-left: 25px;
+		.donate{
+			width: 90%;
+		}
+		.progress{
+			width: 300px;
+			margin-bottom: 4px;
+		}
+	}
+	.proj-tags{
+		width: 100%;
+		padding: 10px;
+		text-align: center;
+	}
+}
+.proj-tag{
+	height: 20px;
+	background-color: #2cabe2;
+	border-radius: 5px;
+	text-align: center;
+	padding: 5px;
+}
+
+.wide-width{
+	width: 100%;
+}
+.fake-hr{
+	border-bottom: 1px solid black;
+	margin-bottom: 10px;
+}
+.proj-display{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+	border-radius: 20px;
+	padding: 20px;
+	text-align: center;
+	.proj-advisors{
+		height: 40px;
+		.title{
+			vertical-align: top;
+			margin-top: 10px;
+		}
+		.proj-advisor{
+			margin-right: 20px;
+			margin-left: 10px;
+		}
+	}
+	.proj-collabs{
+		height: 40px;
+		.title{
+			vertical-align: top;
+			margin-top: 10px;
+		}
+		.proj-collab{
+			margin-right: 20px;
+			margin-left: 10px;
+		}
+	}
+}
+
+.proj-basics{
+	width: 400px;
+	vertical-align: top;
+	margin-top: 100px;
+	.text_area{
+		height: 300px;
+		width: 300px;
+	}
+}
+.proj-extra{
+	width: 500px;
+	vertical-align: top;
+	text-align: center;
+	.select2-container{
+		width: 200px;
+	}
+}
+
+.carousel-main{
+	width: 800px;
+	margin-left: 15%;
+	.carousel-inner{
+		height: 520px;
+		width: inherit;
+		.item{
+			height: inherit;
+			width: inherit;
+			img{
+				width: 100%;
+				height: 70%;
+			}
+			.carousel-caption{
+				height: 26%;
+				background-color: #EEEEEE;
+				text-align: center;
+				.proj-title{
+					h2{
+						margin: 0px;
+					}
+				}
+				.funds{
+					margin-top: 10px;
+					.progress{
+						width: 300px;
+						margin-bottom: 4px;
+					}
+				}
+			}
+		}
+	}
+}
+.progress{
+	width: 300px;
+	display: inline-block;
+	.bar{
+		color: #645470;
+	}
+}
+
+.carousel-mine, .carousel-collab, .carousel-donate {
+	width: 1000px;
+	margin-left: 10%;
+	.carousel-inner{
+		height: 520px;
+		width: inherit;
+		.item{
+			height: 400px;
+			width: inherit;
+			>img{
+				width: 100%;
+				height: 100%;
+			}
+			.row-elements{
+				width: 333px;
+				height: 400px;
+				img{
+					width: 100%;
+					height: 70%;
+				}
+				.caption{
+					height: 25%;
+					background-color: #EEEEEE;
+					text-align: center;
+					width: 333px;
+					.proj-title{
+						width: inherit;
+						h2{
+							margin-bottom: 0px;
+						}
+					}
+					.funds{
+						margin-top: 10px;
+						.progress{
+							width: 200px;
+							margin-bottom: 4px;
+						}
+					}
+				}
+
+			}
+		}
+	}
+}
+
+
+
+.carousel-btn{
+	border: 1px solid #0BA2D9;
+}
+
+.carousel-btn-left{
+	margin-top: -11px;
+	margin-left: -7px;
+	color:#0BA2D9;
+
+}
+.carousel-btn-right{
+	margin-top: -11px;
+	margin-left: 7px;
+	color:#0BA2D9;
+
+}
+
+.list-proj{
+	width: 300px;
+	height: 400px;
+	display: inline-block;
+	margin: 20px;
+	text-align: center;
+	img{
+		width: 100%;
+		height: 70%;
+	}
+	.caption{
+		height: 25%;
+		background-color: #EEEEEE;
+		text-align: center;
+		width: 266px;
+		.proj-title{
+			width: inherit;
+			h2{
+				margin-bottom: 0px;
+			}
+		}
+		.funds{
+			margin-top: 10px;
+			.progress{
+				width: 200px;
+				margin-bottom: 4px;
+			}
+		}
+	}
+
+}
+
+
+
