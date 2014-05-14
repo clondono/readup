@@ -1,6 +1,15 @@
 Uap::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['S3_BUCKET_NAME'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
+  }
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -20,14 +29,14 @@ Uap::Application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_assets = false
+  config.serve_static_assets = true
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs.
   config.assets.digest = true
@@ -64,6 +73,23 @@ Uap::Application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    enable_starttls_auto: true,
+    address: 'smtp.gmail.com',
+    port: 587,
+    authentication: 'plain',
+    user_name: 'angelalums.inc@gmail.com',
+    password: 'alumniangels',
+    enable_starttls_auto: true
+  }
+
+  config.action_mailer.perform_deliveries = true
+
+  config.action_mailer.default_url_options = { :host => 'https://angelalums.herokuapp.com/'}
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
@@ -71,6 +97,8 @@ Uap::Application.configure do
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
+
+  config.secret_key_base = "cdab63868102d478561dfb67807d6e1e71814a342d8528bd4a874a2678a4fbeb35c2683f03b6c98c6cd9f48c8e3690d9745e049bfb399894be3c99f624ba3c27"
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
