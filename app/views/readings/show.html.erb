@@ -6,6 +6,17 @@
 	<div class = "proj-descrip inlineb wide-width fake-hr">
 		<b>Author:</b> <%= @reading.author%>
 	</div>
+	<div class="proj-tags inlineb">
+		Tags: <br/>
+		<%@reading.tags.each do |tag|%>
+			<div class="proj-tag inlineb">
+				<%=tag.title%>
+			</div>
+		<%end%>
+	</div>
+
+	</br>
+	</br>
 	<%= link_to 'Back', root_path, :class => 'btn btn-primary' %> 
 	<% if @reading.access_level(current_user.id) == "uploader"%>
 		<%= link_to 'Edit', edit_reading_path(@reading), :class => 'btn btn-primary' %> 

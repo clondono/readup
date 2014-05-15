@@ -1,5 +1,8 @@
 class ReadingsController < ApplicationController
+  before_action :set_reading, only: [:show, :edit, :update, :destroy]
   before_action :logged_in
+  before_action :prep_params, only: [:create, :update]
+
 
 
   # GET /readings
@@ -12,7 +15,6 @@ class ReadingsController < ApplicationController
   # GET /readings/1
   # GET /readings/1.json
   def show
-  	    @reading = Reading.find(params[:id])
   end
 
   # GET /readings/new
@@ -61,7 +63,6 @@ class ReadingsController < ApplicationController
   # DELETE /readings/1
   # DELETE /readings/1.json
   def destroy #BigCal
-    @reading = Reading.find(params[:id])  
     @reading.destroy
     respond_to do |format|
       format.html { redirect_to readings_url }
@@ -78,5 +79,20 @@ def logged_in
     redirect_to new_user_session_path
   end
 end
+
+def prep_params
+  tagids = []
+  params[:taggables].each do |id|
+    tagids.push({:tag_id => id})
+  end
+  params[:reading][:taggables_attributes] = tagids
+end
+
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_reading
+      @reading = Reading.find(params[:id])
+    end
 
 end

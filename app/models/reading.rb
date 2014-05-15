@@ -4,8 +4,8 @@ class Reading < ActiveRecord::Base
     has_many :comments
 
 	#Include PDF
-    has_attached_file :file, styles: {thumbnail: "60x60#"}, :path => ':rails_root/public/system/:id.:extension'
-        validates_attachment :file, content_type: { content_type: "application/pdf" }
+    has_attached_file :file
+    validates_attachment :file, content_type: { content_type: "application/pdf" }
 
     has_many :taggables, dependent: :destroy
     has_many :tags, through: :taggables
