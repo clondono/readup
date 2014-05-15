@@ -1,6 +1,6 @@
 	<div class="span8 section" id="updateBlurb"> 
 		<h1 class="Headings">Recently Uploaded Readings</h1>
 		<% @recentReadings.each do |reading| %>
-			<div> <%= link_to reading.title, reading %></a> by <a><%= reading.author%></a></div>
+			<div>  <%= link_to reading.title, reading %></a> by <a><%= reading.author%></a></div>
 		<%end%> 
 	</div>

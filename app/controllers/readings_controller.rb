@@ -12,6 +12,7 @@ class ReadingsController < ApplicationController
   # GET /readings/1
   # GET /readings/1.json
   def show
+  	    @reading = Reading.find(params[:id])
   end
 
   # GET /readings/new
@@ -60,6 +61,7 @@ class ReadingsController < ApplicationController
   # DELETE /readings/1
   # DELETE /readings/1.json
   def destroy #BigCal
+    @reading = Reading.find(params[:id])  
     @reading.destroy
     respond_to do |format|
       format.html { redirect_to readings_url }

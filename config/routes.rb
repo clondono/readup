@@ -8,9 +8,9 @@ get "home/index"
   resources :users
   resources :user_steps
   resources :search
-  resources :readings
-  
-
+  resources :readings, shallow: true do
+    	resources :comments, :only => [:create, :destroy]  
+  end
   root 'home#index'
 
 end

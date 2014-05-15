@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   layout :layout_by_resource
 
     def update_sanitized_params
-    devise_parameter_sanitizer.for(:sign_up).push(:first_name, :last_name)
+    devise_parameter_sanitizer.for(:sign_up).push(:first_name, :last_name, :type)
     devise_parameter_sanitizer.for(:account_update).push(:first_name, :last_name, :avatar, :linkedIn)
   end
 

@@ -3,11 +3,12 @@ class HomeController < ApplicationController
 
 
   def index
-    @all_readings = Reading.all
-    if current_user.type == "Student"
-    
-    else
-    
+    @readings = Reading.all
+    recentSize=2
+    if recentSize < @readings.length
+      @recentReadings = @readings.drop(@readings.length-recentSize).reverse
+    else 
+      @recentReadings = @readings.drop(0).reverse
     end
   end
 
