@@ -4,7 +4,7 @@ class HomeController < ApplicationController
 
   def index
     @readings = Reading.all
-    recentSize=2
+    recentSize=6
     if recentSize < @readings.length
       @recentReadings = @readings.drop(@readings.length-recentSize).reverse
     else 

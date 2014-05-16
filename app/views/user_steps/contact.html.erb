@@ -1,0 +1,17 @@
+<div class="form-signUp">
+  <div class="form">
+    <h2 class="form-title">Contact Info</h2>
+    <%= form_for @user, url: wizard_path do |f| %>
+
+      <div><%= f.label "Linkedin url" %>
+      <%= f.text_field :linkedIn%></div>
+
+      
+      <div>
+        <div style="margin-bottom:10px"><%= f.submit "Continue", class:"btn inlineb btn-primary" %></div>  
+       <%= link_to "skip", root_path, class:"btn inlineb btn-danger"%>
+      </div>
+
+    <% end %>
+  </div>
+</div>

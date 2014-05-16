@@ -1,4 +1,5 @@
 Uap::Application.routes.draw do
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -8,8 +9,9 @@ get "home/index"
   resources :users
   resources :user_steps
   resources :search
-  resources :readings, shallow: true do
+  resources :readings do
     	resources :comments, :only => [:create, :destroy]  
+      resources :summaries, shallow: true
   end
   root 'home#index'
 

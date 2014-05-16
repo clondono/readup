@@ -1,0 +1,56 @@
+
+<div class="container">
+    <div class = "row">
+        <div class="page-header well">
+          <h1>Showing summarys for <u><%= link_to @reading.title, @reading %></u></h1>
+          <% if @can_write %>
+            <u><p id="new_summary"><%= link_to 'Add new summary', new_reading_summary_path(@reading) %></p></u>
+          <% end %>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12"> 
+          <!-- render partial views for each summarys, from newest to oldest -->
+          <% @summaries.reverse.each do |summary| %>
+      			 <div class="summary_entry">
+  				      <%= render summary %>
+                <!-- access control -->
+                <% if summary.can_edit?(current_user.id) %>
+                  <div class="form-actions">
+                     <%= render "summary_action_forms", :summary => summary, :reading => @reading %>
+                  </div>
+                <% end %>
+  			     </div>
+          <% end %>
+        </div>  
+    </div>
+</div>
+
+
+
+
+<%
+=begin %>
+<div class="form-actions">
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_project_summary_path,
+            :class => 'btn btn-primary' %>
+</div>
+<%
+=end %>
+            
+<%
+=begin %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_summary_path(summary), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      summary_path(summary),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+<%
+=end %>

@@ -14,9 +14,6 @@
 	<%end%>
 	<% @readings.each do |reading|%>
 	<div class="result inlineb">
-		<div class="result-video inlineb">
-			<iframe src="<%= strip_tags(reading.youtube_embed)%>" frameborder="0" allowfullscreen class = "inlineb"></iframe>
-		</div>
 		<div class="result-right inlineb">
 			<div class = "search-link inlineb">
 				<h2><%= link_to ""+ reading.title, reading %></h2>

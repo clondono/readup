@@ -1,0 +1,14 @@
+<!-- Partial view for summary -->
+<!-- Required parameters : summary -->
+
+
+
+<hr>
+<h1><%= link_to summary.title, summary %></h1>
+<p class="lead">by <%= summary.creator.name %></a></p>
+<p class="p_margin_bottom_25"><%= glyph(:time) %> Posted on <%= summary.updated_at.in_time_zone('America/New_York').to_formatted_s(:long_ordinal) %></p>
+<%= simple_format(summary.content, :class=>"p_margin_bottom_25") %>
+
+
+<hr>
+

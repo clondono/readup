@@ -2,6 +2,7 @@ class Reading < ActiveRecord::Base
 
 	belongs_to :student, foreign_key: "uploader_id"
     has_many :comments
+    has_many :summaries
 
 	#Include PDF
     has_attached_file :file

@@ -3,9 +3,13 @@
 	<div class="proj-title inlineb wide-width fake-hr">
 		<b>Title:</b><%= @reading.title%>
 	</div>
+		</br>
 	<div class = "proj-descrip inlineb wide-width fake-hr">
 		<b>Author:</b> <%= @reading.author%>
 	</div>
+		</br>
+	<%= link_to "View", @reading.file.url(:original, false) %>
+	</br>
 	<div class="proj-tags inlineb">
 		Tags: <br/>
 		<%@reading.tags.each do |tag|%>
@@ -18,6 +22,9 @@
 	</br>
 	</br>
 	<%= link_to 'Back', root_path, :class => 'btn btn-primary' %> 
+	<%= link_to 'Summaries', reading_summaries_path(@reading), :class => 'btn btn-primary'%> 
+	<%= link_to 'Create Summary', new_reading_summary_path(@reading), :class => 'btn btn-primary'%>
+		
 	<% if @reading.access_level(current_user.id) == "uploader"%>
 		<%= link_to 'Edit', edit_reading_path(@reading), :class => 'btn btn-primary' %> 
 		<%if @reading.access_level(current_user.id) == "uploader"%>
@@ -28,7 +35,7 @@
 				%>
 		<%end%>
 	<%end%>
-
+	</br>
 	<!-- new comment section -->
 	<div class="well">
 		<h4>Leave a Comment:</h4>

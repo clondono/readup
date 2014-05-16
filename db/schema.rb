@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515034549) do
+ActiveRecord::Schema.define(version: 20140516090012) do
 
   create_table "alums", force: true do |t|
     t.datetime "created_at"
@@ -51,6 +51,15 @@ ActiveRecord::Schema.define(version: 20140515034549) do
     t.datetime "updated_at"
   end
 
+  create_table "summaries", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "reading_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "taggables", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -86,6 +95,8 @@ ActiveRecord::Schema.define(version: 20140515034549) do
     t.datetime "avatar_updated_at"
     t.string   "linkedIn"
     t.string   "type"
+    t.integer  "grad_year"
+    t.integer  "major"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

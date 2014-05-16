@@ -12,5 +12,8 @@ module ApplicationHelper
     f.hidden_field(:_destroy) + link_to_function(name, "remove_fields(this)", :class => 'btn inlineb btn-warning')
   end
 
+  def majorList
+    ["6-1: Elictrical Science and Engineering","6-2: Conputer Science and Electrical Engineering","6-3: Conputer Science and Engineering"]
+  end
 
 end

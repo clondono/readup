@@ -15,6 +15,12 @@
 
   <div><%= f.label "LinkedIn url" %>
   <%= f.text_field :linkedIn%></div>
+
+  <div><%= f.label :major, class: "form-label"%>
+  <%= f.select :major, options_for_select(majorList)%></div>
+
+  <div><%= f.label :grad_year, class: "form-label" %>
+  <%= f.text_field :grad_year%></div>
       
   <div style="margin-bottom:10px"><%= f.submit "Update", class:"btn inlineb btn-primary" %></div>
 

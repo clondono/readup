@@ -1,0 +1,27 @@
+<!-- a form for update/new and update/edit -->
+
+<%= form_for [@reading, @summary], :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'text_field update_input_field', :placeholder=>'title', :required=>:true %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :content, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :content, :rows=>10, :cols =>20, :placeholder =>'content', :class => 'update_input_field', :required=>:true %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit 'Submit changes', :class => 'btn btn-primary' %>
+    <% if params[:reading_id] %>
+      <% reading = Reading.find(params[:reading_id]) %>
+    <% else %>
+      <% reading = Reading.find(@summary.reading_id) %>
+    <% end %>
+    
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+      reading_summaries_path(reading), :class => 'btn' %>
+  </div>
+<% end %>

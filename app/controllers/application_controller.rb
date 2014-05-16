@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
     def update_sanitized_params
     devise_parameter_sanitizer.for(:sign_up).push(:first_name, :last_name, :type)
-    devise_parameter_sanitizer.for(:account_update).push(:first_name, :last_name, :avatar, :linkedIn)
+    devise_parameter_sanitizer.for(:account_update).push(:first_name, :last_name, :avatar, :linkedIn, :grad_year, :major)
   end
 
     #render layout "devise" on the homepage while rendering layout "application" for other pages
